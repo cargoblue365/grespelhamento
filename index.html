@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>👨‍💻Programação - CargoBlue</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        header {
+            background-color: #004aad;
+            padding: 15px 20px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 15px;
+        }
+
+        header img {
+            height: 35px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 22px;
+            font-weight: normal;
+        }
+
+        .container {
+            margin: 30px auto;
+            width: 90%;
+            max-width: 1200px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        iframe {
+            border-radius: 10px;
+            width: 100%;
+            height: 600px;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <!-- imagem local --> 
+        <!-- <img src="/Logobranco.png" alt="Logo CargoBlue"> -->
+        <h1>CARGOBLUE - Programação Status Espelhamento</h1>
+    <!-- </header>
+    <header>
+        <img src="Logobranco.png" alt="Logo CargoBlue" style="height:35px;">
+        <h1>Programação Status Espelhamento</h1> -->
+    </header>
+
+    <div class="container">
+        <iframe 
+            class="airtable-embed" 
+            src="https://airtable.com/embed/app1avrro5zomTG6o/shrgAyHX3J6Oarmq1" 
+            frameborder="0" 
+            onmousewheel="" 
+            width="100%" height="533" style="background: transparent; border: 1px solid #ccc;">
+            </iframe>
+    </div>
+
+    <div style="margin-top: 20px;">
+        <button onclick="carregarDados()">Ver dados da API</button>
+        <pre id="saida" style="text-align:left; margin:20px auto; width:90%; max-width:1200px;"></pre>
+    </div>
+
+    <script>
+        async function carregarDados() {
+            try {
+                const res = await fetch('/dados');
+                const data = await res.json();
+                document.getElementById('saida').textContent = JSON.stringify(data, null, 2);
+            } catch (err) {
+                document.getElementById('saida').textContent = 'Erro ao carregar dados.';
+            }
+        }
+    </script>
+</body>
+</html>
+
+

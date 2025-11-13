@@ -1,0 +1,8 @@
+{
+  "name": "cargo-blue",
+  "version": "1.0.0",
+  "main": "01_app.py",
+  "scripts": {},
+  "license": "ISC",
+  "description": "App Flask da CargoBlue integrado com Airtable"
+}
